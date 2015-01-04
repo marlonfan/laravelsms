@@ -4,12 +4,12 @@
 ####一个依赖于云通讯的laravel短信扩展包
 
 ## 使用方法
-* 在composer中引入"marlon/yuntongxun": "dev-master"
+* 在composer中引入"marlon/yuntongxun": "0.1.0"
 * 在laravel的``app/config/app.php``中添加以下内容
  - providers数组中添加``'Marlon\Yuntongxun\YuntongxunServiceProvider'``
  - aliases数组中添加``'Sms' 				=> 'Marlon\Yuntongxun\Yuntongxun'``
 * 根据情况执行``composer install``命令或者``composer update``命令
-* 在laravel根目录执行``php artisan config:publish --path="src/config" marlon/yuntongxun``
+* 在laravel根目录执行``php artisan config:publish marlon/yuntongxun``
 * 在``app/config/package/yuntongxun/config``设置你的云通讯相关信息
 ## 示例代码
 ```php
