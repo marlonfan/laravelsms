@@ -25,31 +25,28 @@ class Yuntongxun
         $rest = new REST($serverIP,$serverPort,$softVersion);
         $rest->setAccount($accountSid,$accountToken);
         $rest->setAppId($appId);
+
+        $status = [
+            'to' => $to
+        ];
         
-        // 发送模板短信
-        echo "Sending TemplateSMS to $to <br/>";
         $result = $rest->sendTemplateSMS($to,$datas,$tempId);
         if($result == NULL ) {
-            echo "result error!";
-            break;
+            $status['status'] = '未知错误';
         }
         if($result->statusCode!=0) {
-            // echo "error code :" . $result->statusCode . "<br>";
-            // echo "error msg :" . $result->statusMsg . "<br>";
-             //TODO 添加错误处理逻辑
+            $status['status'] = $result->statusCode;
         }else{
-            // echo "Sendind TemplateSMS success!<br/>";
-            // 获取返回信息
             $smsmessage = $result->TemplateSMS;
-            // echo "dateCreated:".$smsmessage->dateCreated."<br/>";
-            // echo "smsMessageSid:".$smsmessage->smsMessageSid."<br/>";
-            //TODO 添加成功处理逻辑
+            $status['status'] = 'success';
         }
+
+        return $status;
     }
     
     static function send($data, $str, $num)
     {
-        self::sendAc($data, $str, $num);
+        return self::sendAc($data, $str, $num);
     }
 
 }

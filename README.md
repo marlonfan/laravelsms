@@ -4,7 +4,7 @@
 ####一个依赖于云通讯的laravel短信扩展包
 
 ## 使用方法
-* 在composer中引入"marlon/yuntongxun": "0.1.0"
+* 在composer中引入"marlon/yuntongxun": "0.1.1"
 * 在laravel的``app/config/app.php``中添加以下内容
  - providers数组中添加``'Marlon\Yuntongxun\YuntongxunServiceProvider'``
  - aliases数组中添加``'Sms' 				=> 'Marlon\Yuntongxun\Yuntongxun'``
@@ -14,10 +14,17 @@
 ## 示例代码
 ```php
 <?php
-Sms::send($mobile, $info, $id)
-//$mobile 为发送的手机号,为字符串,多个手机号用逗号分隔
-//$info 为发送的验证码以及有效时间,为数组
-//$id 为要发送的模板id
+$result = Sms::send($mobile, $info, $id);
+/*
+ * $mobile 为发送的手机号,为字符串,多个手机号用逗号分隔
+ * $info 为发送的验证码以及有效时间,为数组
+ * $id 为要发送的模板id
+ * Sms::send会有返回值,为数组形式
+ * return Array(
+ *     'to' => '18635634441',   发送的手机号
+ *     'status' => '0'          状态码,状态码为0的情况下为发送成功
+ * )
+ */
 ```
 
 
