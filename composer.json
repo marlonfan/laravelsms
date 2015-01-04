@@ -1,0 +1,20 @@
+{
+    "name": "marlon/yuntongxun",
+    "description": "laravel sms send",
+    "authors": [
+        {
+            "name": "marlonfan",
+            "email": "marlon@tfan.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Marlon\\Yuntongxun": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
