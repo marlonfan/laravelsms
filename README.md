@@ -10,7 +10,7 @@
  - aliases数组中添加``'Sms' 				=> 'Marlon\Yuntongxun\Yuntongxun'``
 * 根据情况执行``composer install``命令或者``composer update``命令
 * 在laravel根目录执行``php artisan config:publish marlon/yuntongxun``
-* 在``app/config/package/yuntongxun/config``设置你的云通讯相关信息
+* 在``app/config/package/yuntongxun/config/config.php``设置你的云通讯相关信息
 ## 示例代码
 ```php
 <?php
